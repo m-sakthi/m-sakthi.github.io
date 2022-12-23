@@ -1,0 +1,15 @@
+{
+  "name": "my-github-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio Template",
+  "main": "index.html",
+  "author": "Sakthivel M",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
