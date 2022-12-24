@@ -1,7 +1,27 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,400;1,700&display=swap');
+
 /* CSS variables Declaration */
 :root {
-  --primary: #fe5b03;
-  --top-header-height: 72px;
+  /* colors */
+  --primary: #08fdd8;
+  --primary-200: #14c1a7;
+  --primary-400: #208677;
+  --primary-700: #1b4741;
+  --primary-900: #001111;
+  --primary-901: #001416;
+  
+  /*  */
+  --primary-gray: #829898;
+  --gray-600: #878989;
+  --gray-400: #a6b6b6;
+  --gray-200: #c9c9c9;
+
+  --light: #ffffff;
+  --dark: #000909;
+  
+  /* sizes */
+  --top-header-height: 64px;
 }
 
 html {
@@ -11,108 +31,16 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-html,
-body {
+html, body {
   width: 100%;
   height: 100%;
 }
 
-body {
-  line-height: 1;
-  font-family: sans-serif;
-  overflow-x: hidden;
-  -ms-overflow-style: scrollbar;
-  -webkit-text-size-adjust: none;
-  -webkit-font-smoothing: antialiased;
-}
-
-*,
-*:before,
-*:after {
+*, *:before, *:after {
   box-sizing: inherit;
 }
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -122,34 +50,19 @@ video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-ol,
-ul {
+ol, ul {
   list-style: none;
 }
 
-blockquote,
-q {
+blockquote, q {
   quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after, q:before, q:after {
   content: '';
   content: none;
 }
@@ -182,9 +95,46 @@ table {
   height: 100vh;
 }
 
+.color-primary {
+  color: var(--primary);
+}
+
+button {
+  font-size: 1rem;
+  background-color: transparent;
+  padding: 0.8rem 1.6rem;
+  outline: none;
+  border: 1px Solid;
+  width: fit-content;
+  letter-spacing: 0.2rem;
+  border-radius: 0.4rem;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in;
+}
+
+button.primary {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+button.primary:hover {
+  background-color: var(--primary);
+  color: var(--primary-900);
+}
+
 /* App styles */
-.page-container {
-  /* margin-top: var(--top-header-height); */
+
+body {
+  line-height: 1;
+  font-family: 'Source Sans Pro', sans-serif;
+  overflow-x: hidden;
+  -ms-overflow-style: scrollbar;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+#section-container {
+  transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
+  color: #ffF;
 }
 
 .profile-image {
@@ -195,9 +145,10 @@ table {
 
 .navigation {
   justify-content: space-between;
-  padding-right: 24px;
-  padding-left: 24px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
   z-index: 10;
+  box-shadow: -1px -1px 3px 0px var(--primary);
 }
 
 .nav-top {
@@ -208,10 +159,63 @@ table {
 
 .nav-link {
   display: inline-block;
-  padding: 16px;
+  padding: 20px;
+  color: var(--light);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--primary);
 }
 
 .page-section {
   position: relative;
   padding-top: var(--top-header-height);
+}
+
+.page-section:nth-child(odd) {
+	background-color: var(--primary-900);
+}
+
+.page-section:nth-child(even) {
+	background-color: var(--primary-901);
+}
+
+/* Hero Banner */
+.hero-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 5rem 3rem 8rem;
+}
+
+.hero-banner > h2 {
+  margin-bottom: 0.6rem;
+}
+
+.hero-txt {
+  font-size: 4.5rem;
+  font-weight: 800;
+  letter-spacing: .05rem;
+}
+
+.hero-subtitle {
+  font-size: 1.6rem;
+  margin: 1rem 0;
+  letter-spacing: .05rem;
+  color: var(--primary-gray);
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
+  width: 80%;
+  max-width: 800px;
+  color: var(--primary-gray);
+  line-height: 1.4rem;
+  margin-bottom: 2rem;
 }

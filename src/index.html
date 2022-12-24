@@ -11,78 +11,89 @@
     <meta name="description" content="Portfolio of Sakthivel Murugadas - Fullstack developer" />
     <meta name="keywords"
       content="sakthivel, sakthivel murugadas, murugadas, fullstack, sakthivel fullstack, sakthivel fullstack developer" />
+
     <link rel="icon" href="assets/images/favicon.png" />
     <link rel="stylesheet" href="assets/styles/index.css" />
+
+    <script>
+      window.onbeforeunload = function () {
+        history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
+      }
+    </script>
   </head>
 
   <body>
     <div id="full-page-container">
-
       <nav class="navigation nav-top width-full flx-row flx-x-center">
         <a class="nav-link" href="/">Home</a>
-        <div class="flx-row flx-x-center flx-y-center">
-          <a class="nav-link" href="#about">About</a>
-          <a class="nav-link" href="#skills">Skills</a>
-          <a class="nav-link" href="#work">Work</a>
-          <a class="nav-link" href="#contact">Contact</a>
+        <div id="nav-links-container" class="flx-row flx-x-center flx-y-center">
+          <a class="nav-link" data-order-id="0" href="#about">About</a>
+          <a class="nav-link" data-order-id="1" href="#skills">Skills</a>
+          <a class="nav-link" data-order-id="2" href="#work">Work</a>
+          <a class="nav-link" data-order-id="3" href="#contact">Contact</a>
         </div>
       </nav>
-
-      <!-- <div class="page-container"> -->
-      <section id="about" class="page-section full-page">
-        <h2>MyName</h2>
-        <h3>Fullstack Developer</h3>
-        <div class="overview">
-          Digital native, enthusiastic, willing to take responsibilities in areas of
-          <b>web/mobile application development</b> and enterprise adoption of <b>Devops and Cloud</b>.
-        </div>
-      </section>
-
-      <section id="skills" class="page-section full-page">
-        <h3>Skills</h3>
-        <ul>
-          <li>Javascript</li>
-          <li>Ruby</li>
-          <li>Python</li>
-        </ul>
-      </section>
-
-      <section id="work" class="page-section full-page">
-        <h3>Experience</h3>
-        <div class="section-item">
-          <div>
-            <span class="organisation-title">XYZ Info Tech</span>,
-            <span class="location">Chennai</span>
+      <div id="section-container" class="page-container">
+        <section id="about" class="page-section full-page">
+          <div class="hero-banner">
+            <h2 class="hero-txt">Hi,</h2>
+            <h2 class="hero-txt color-primary">I'm Sakthivel,</h2>
+            <h3 class="hero-subtitle">Fullstack Developer</h3>
+            <div class="hero-description">
+              <!-- Digital native, enthusiastic, willing to take responsibilities in areas of
+              web/mobile application development and enterprise adoption of Devops and Cloud. -->
+              Expert in building scallable apis, web and mobile applications, with experience in CI/CD, Devops and Cloud.
+            </div>
+            <button class="primary">Contact me</button>
           </div>
-          <div>
-            <span>Senior Developer</span>
-          </div>
-          <span>June 2018 - Present</span>
-        </div>
+        </section>
 
-        <div class="section-item">
-          <div>
-            <span class="organisation-title">ABC Info Tech</span>,
-            <span class="location">Chennai</span>
-          </div>
-          <div>
-            <span>Developer</span>
-          </div>
-          <span>Juune 2015 - May 2018</span>
-        </div>
-      </section>
+        <section id="skills" class="page-section full-page">
+          <h3>Skills</h3>
+          <ul>
+            <li>Javascript</li>
+            <li>Ruby</li>
+            <li>Python</li>
+          </ul>
+        </section>
 
-      <section id="contact" class="page-section full-page">
-        <span class="address">City name, Country</span>
-        <span class="mobile">City name, Country</span>
-        <span class="email">
-          <a href="mailto:youremail@domain.com">
-            youremail@domain.com
-          </a>
-        </span>
-      </section>
+        <section id="work" class="page-section full-page">
+          <h3>Experience</h3>
+          <div class="section-item">
+            <div>
+              <span class="organisation-title">XYZ Info Tech</span>,
+              <span class="location">Chennai</span>
+            </div>
+            <div>
+              <span>Senior Developer</span>
+            </div>
+            <span>June 2018 - Present</span>
+          </div>
 
-      <!-- <footer>
+          <div class="section-item">
+            <div>
+              <span class="organisation-title">ABC Info Tech</span>,
+              <span class="location">Chennai</span>
+            </div>
+            <div>
+              <span>Developer</span>
+            </div>
+            <span>Juune 2015 - May 2018</span>
+          </div>
+        </section>
+
+        <section id="contact" class="page-section full-page">
+          <span class="address">City name, Country</span>
+          <span class="mobile">City name, Country</span>
+          <span class="email">
+            <a href="mailto:youremail@domain.com">
+              youremail@domain.com
+            </a>
+          </span>
+        </section>
+
+        <!-- <footer>
           <ul class="social-profiles">
             <li>
               <a href="https://github.com/your-github-username">
@@ -96,7 +107,10 @@
             </li>
           </ul>
         </footer> -->
+      </div>
     </div>
+
+    <script type="text/javascript" src="assets/js/fullPageScroll.js"></script>
   </body>
 
 </html>
