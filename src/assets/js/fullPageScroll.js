@@ -1,12 +1,10 @@
 (function () {
   "use-strict";
 
-  // console.log("window.scrollTowindow.scrollTowindow.scrollTo")
-  // window.scrollTo(0, 0);
-
   var container = document.getElementById('full-page-container');
   var sectionContainer = document.getElementById('section-container');
   var sections = document.querySelectorAll('.page-section');
+  var contactMeElements = document.querySelectorAll('.contactme');
   var navLinks = document.getElementById('nav-links-container').querySelectorAll('.nav-link');
   var scrollingToBottom = '';
   var scrolledHeight = 0;
@@ -42,6 +40,10 @@
 
   for (var i = 0; i < navLinks.length; i++) {
     navLinks[i].addEventListener('click', scrollHandler);
+  }
+
+  for (var i = 0; i < contactMeElements.length; i++) {
+    contactMeElements[i].addEventListener('click', scrollHandler);
   }
 
   container.addEventListener('wheel', scrollHandler);

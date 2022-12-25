@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sakthivel - Fullstack dev portfolio</title>
+    <title>Sakthivel - Fullstack developer</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Portfolio of Sakthivel Murugadas - Fullstack developer" />
@@ -25,72 +25,109 @@
 
   <body>
     <div id="full-page-container">
-      <nav class="navigation nav-top width-full flx-row flx-x-center">
-        <a class="nav-link" href="/">Home</a>
-        <div id="nav-links-container" class="flx-row flx-x-center flx-y-center">
-          <a class="nav-link" data-order-id="0" href="#about">About</a>
-          <a class="nav-link" data-order-id="1" href="#skills">Skills</a>
-          <a class="nav-link" data-order-id="2" href="#work">Work</a>
-          <a class="nav-link" data-order-id="3" href="#contact">Contact</a>
+      <nav class="navigation nav-top width-full">
+        <div class="max-width width-full flx-row height-100 flx-x-center space-between nav-pad ls1">
+          <a class="nav-link pad-0" href="/">
+            <img src="assets/images/logo.svg">
+          </a>
+          <div id="nav-links-container" class="flx-row flx-x-center flx-y-center">
+            <a class="nav-link" data-order-id="0" href="#about">About</a>
+            <a class="nav-link" data-order-id="1" href="#skills">Skills</a>
+            <a class="nav-link" data-order-id="2" href="#work">Work</a>
+            <a class="nav-link" data-order-id="3" href="#contact">Contact</a>
+          </div>
         </div>
       </nav>
       <div id="section-container" class="page-container">
-        <section id="about" class="page-section full-page">
-          <div class="hero-banner">
-            <h2 class="hero-txt">Hi,</h2>
-            <h2 class="hero-txt color-primary">I'm Sakthivel,</h2>
-            <h3 class="hero-subtitle">Fullstack Developer</h3>
-            <div class="hero-description">
-              <!-- Digital native, enthusiastic, willing to take responsibilities in areas of
-              web/mobile application development and enterprise adoption of Devops and Cloud. -->
-              Expert in building scallable apis, web and mobile applications, with experience in CI/CD, Devops and Cloud.
+        <!-- <section id="about" class="page-section full-page">
+          <div class="max-width height-100">
+            <div class="flx-col flx-y-center hero-banner ls1">
+              <div class="flx-col">
+                <h2 class="h9">Hi,<br />I'm <span class="color-primary">Sakthivel</span></h2>
+                <h4 class="sub-heading">Fullstack Developer</h4>
+                <p class="p1 width-75">
+                  Expert in building scallable apis, web and mobile applications, with experience in CI/CD, Devops and Cloud.
+                </p>
+              </div>
+              <button class="primary contactme" data-order-id="3">Contact me</button>
             </div>
-            <button class="primary">Contact me</button>
           </div>
-        </section>
+        </section> -->
 
         <section id="skills" class="page-section full-page">
-          <h3>Skills</h3>
-          <ul>
-            <li>Javascript</li>
-            <li>Ruby</li>
-            <li>Python</li>
-          </ul>
+          <div class="max-width height-100">
+            <div class="flx-col pad-3">
+              <h2 class="h9 color-primary">Skills</h2>
+              <p class="p1">
+                I'm experienced in creating scalable and performant apis, web and hybrid mobile applications. 
+              </p>
+              <p class="p1">
+                I also have experience in Devops like building CI/CD pipelines, managing docker containers and cloud deployments. 
+              </p>
+              <ul>
+                <li>Javascript</li>
+                <li>NodeJs</li>
+                <li>ExpressJs</li>
+                <li>SailsJs</li>
+                <li>SocketIO</li>
+                <li>Ruby</li>
+                <li>Ruby on Rails</li>
+                <li>React</li>
+                <li>React Native</li>
+                <li>Postgres</li>
+                <li>Mysql</li>
+                <li>OracleSQL</li>
+                <li>Docker</li>
+                <li>Kubernetes</li>
+                <li>Azure</li>
+                <li>Azure Devops</li>
+                <li>Jenkins</li>
+                <li>Elasticsearch</li>
+                <li>Redis</li>
+                <li>Memcached</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section id="work" class="page-section full-page">
-          <h3>Experience</h3>
-          <div class="section-item">
-            <div>
-              <span class="organisation-title">XYZ Info Tech</span>,
-              <span class="location">Chennai</span>
-            </div>
-            <div>
-              <span>Senior Developer</span>
-            </div>
-            <span>June 2018 - Present</span>
-          </div>
+          <div class="max-width height-100">
 
-          <div class="section-item">
-            <div>
-              <span class="organisation-title">ABC Info Tech</span>,
-              <span class="location">Chennai</span>
+            <h3>Experience</h3>
+            <div class="section-item">
+              <div>
+                <span class="organisation-title">XYZ Info Tech</span>,
+                <span class="location">Chennai</span>
+              </div>
+              <div>
+                <span>Senior Developer</span>
+              </div>
+              <span>June 2018 - Present</span>
             </div>
-            <div>
-              <span>Developer</span>
+  
+            <div class="section-item">
+              <div>
+                <span class="organisation-title">ABC Info Tech</span>,
+                <span class="location">Chennai</span>
+              </div>
+              <div>
+                <span>Developer</span>
+              </div>
+              <span>Juune 2015 - May 2018</span>
             </div>
-            <span>Juune 2015 - May 2018</span>
           </div>
         </section>
 
         <section id="contact" class="page-section full-page">
-          <span class="address">City name, Country</span>
-          <span class="mobile">City name, Country</span>
-          <span class="email">
-            <a href="mailto:youremail@domain.com">
-              youremail@domain.com
-            </a>
-          </span>
+          <div class="max-width height-100">
+            <span class="address">City name, Country</span>
+            <span class="mobile">City name, Country</span>
+            <span class="email">
+              <a href="mailto:youremail@domain.com">
+                youremail@domain.com
+              </a>
+            </span>
+          </div>
         </section>
 
         <!-- <footer>
