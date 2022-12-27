@@ -573,7 +573,7 @@ button.primary:hover {
 }
 .bd-image::after {
   content: "";
-  background-image: url('/assets/images/logo-half-dark.svg');
+  background-image: url('../images/logo-half-dark.svg');
   background-repeat: no-repeat;
   background-size: 800px;
   position: absolute;
