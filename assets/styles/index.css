@@ -588,9 +588,11 @@ button.primary:hover {
 
 /* Hero Banner */
 .hero-banner {
+  position: relative;
   gap: 4rem;
   height: 100%;
   padding: var(--s-50) var(--s-20) var(--s-80);
+  z-index: inherit;
 }
 
 @media screen and (min-width: 600px) {
