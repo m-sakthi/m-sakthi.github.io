@@ -11,6 +11,8 @@
   --primary-900: #001111;
   --primary-901: #001416;
 
+  --primary-glassy-900: #00111166;
+
   /*  */
   --primary-gray: #829898;
   --primary-light: #dffffd;
@@ -470,6 +472,9 @@ button.primary:hover {
 #section-container {
   transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
   background-color: var(--primary);
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
 
 .max-width {
@@ -529,6 +534,7 @@ button.primary:hover {
 .page-section {
   position: relative;
   padding-top: var(--top-header-height);
+  scroll-snap-align: start;
 }
 
 .page-section:nth-child(odd) {
@@ -539,7 +545,18 @@ button.primary:hover {
   background-color: var(--primary-901);
 }
 
-.bd-text::after {
+/* .bd-explosion::before {
+  content: '';
+  background-image: url('../images/explosion.png');
+  background-repeat: no-repeat;
+  background-size: 800px;
+  width: 800px;
+  height: 600px;
+  z-index: 0;
+  filter: blur(10px);
+} */
+
+.bd-text::before {
   content: attr(data-backdrop-legend);
   position: absolute;
   bottom: 4rem;
@@ -547,7 +564,6 @@ button.primary:hover {
   font-size: 400px;
   color: var(--gray-400);
   opacity: 0.05;
-  z-index: 0;
   transform: rotate(-15deg);
   filter: blur(10px);
   font-weight: 600;
@@ -568,22 +584,41 @@ button.primary:hover {
   filter: blur(10px);
 }
 
+.bd-moon::before {
+  content: "";
+  background-image: url('../images/moon.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+  position: absolute;
+  top: calc(100px - 50%);
+  right: -200px;
+  width: calc(400px + 30%);
+  height: 120%;
+  z-index: 0;
+  filter: blur(10px);
+  opacity: 0.4;
+}
+
 .bd-image {
   position: relative;
 }
+
 .bd-image::after {
   content: "";
   background-image: url('../images/logo-half-dark.svg');
   background-repeat: no-repeat;
-  background-size: 800px;
+  background-size: 85%;
   position: absolute;
-  right: -10%;
-  width: 800px;
-  height: 600px;
+  right: -25%;
+  width: 80%;
+  height: 80%;
+  top: calc(100px - 50%);
+  width: calc(400px + 30%);
   z-index: 0;
   filter: blur(10px);
   opacity: 0.55;
-  top: -240px;
+  top: -25%;
 }
 
 /* Hero Banner */
@@ -592,7 +627,6 @@ button.primary:hover {
   gap: 4rem;
   height: 100%;
   padding: var(--s-50) var(--s-20) var(--s-80);
-  z-index: inherit;
 }
 
 @media screen and (min-width: 600px) {
@@ -605,10 +639,14 @@ button.primary:hover {
 
 .skills-list {
   margin-top: var(--s-10);
+  /* background-color: var(--primary-glassy-900);
+  padding: var(--s-10);
+  border-radius: var(--s-04);
+  backdrop-filter: blur(10px); */
 }
 
 .skills-list ul {
-  width: 32%;
+  width: calc(100% / 3);
 }
 
 .skills-list li::after {
@@ -757,6 +795,7 @@ button.primary:hover {
   border: 1px solid var(--primary-700);
   padding: var(--s-14);
   border-radius: var(--s-04);
+  backdrop-filter: blur(10px);
   z-index: 1;
 }
 

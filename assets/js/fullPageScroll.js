@@ -34,7 +34,7 @@
 
       setTimeout(() => {
         debounce = false;
-      }, 1000);
+      }, 1500);
     }
   }
 
