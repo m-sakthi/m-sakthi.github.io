@@ -6,10 +6,16 @@
   "author": "Sakthivel M",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel index.html",
-    "build": "rm -rf dist && parcel build index.html"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "vite": "^4.0.3",
+    "vite-plugin-string": "^1.2.1"
+  },
+  "dependencies": {
+    "gsap": "^3.11.4",
+    "three": "^0.148.0"
   }
 }

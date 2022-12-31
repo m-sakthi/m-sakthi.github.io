@@ -8,8 +8,8 @@
   --primary-200: #14c1a7;
   --primary-400: #208677;
   --primary-700: #1b4741;
-  --primary-900: #001111;
-  --primary-901: #001416;
+  --primary-900: #000111;
+  --primary-901: #000506;
 
   --primary-glassy-900: #00111166;
 
@@ -251,6 +251,10 @@ a {
   width: 100%;
 }
 
+.width-50 {
+  width: 50%;
+}
+
 @media screen and (min-width: 600px) {
   .width-l-75 {
     width: 75%;
@@ -298,6 +302,11 @@ a {
   margin-bottom: var(--s-20);
 }
 
+/* Position */
+.absolute {
+  position: absolute;
+}
+
 /*  */
 
 /* Lists */
@@ -306,7 +315,11 @@ li {
 }
 
 /* Buttons */
-button {
+a.button {
+  font-family: Arial;
+}
+
+.button {
   font-size: 1rem;
   background-color: transparent;
   padding: 0.8rem 1.6rem;
@@ -318,12 +331,12 @@ button {
   transition: color 0.3s ease-in, background-color 0.3s ease-in;
 }
 
-button.primary {
+.button.primary {
   border-color: var(--primary);
   color: var(--primary);
 }
 
-button.primary:hover {
+.button.primary:hover {
   background-color: var(--primary);
   color: var(--primary-900);
 }
@@ -389,7 +402,6 @@ button.primary:hover {
   font-size: var(--s-16);
   color: var(--primary-gray);
   margin-bottom: var(--s-10);
-  ;
   line-height: var(--s-18);
 }
 
@@ -397,22 +409,20 @@ button.primary:hover {
   font-size: var(--s-12);
   color: var(--primary-gray);
   margin-bottom: var(--s-10);
-  ;
   line-height: var(--s-14);
 }
 
 .sub-h-2 {
   font-size: var(--s-10);
   color: var(--primary-gray);
-  margin-bottom: var(--s-10);
-  ;
+  margin-bottom: var(--s-04);
+  line-height: var(--s-12);
 }
 
 .sub-h-1 {
   font-size: var(--s-08);
   color: var(--primary-gray);
-  margin-bottom: var(--s-10);
-  ;
+  line-height: var(--s-10);
 }
 
 /* Pragraphs */
@@ -473,13 +483,14 @@ button.primary:hover {
   transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
   background-color: var(--primary);
   height: 100vh;
+  overflow-x: hidden;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
 }
 
 .max-width {
   max-width: var(--max-width);
-  margin: auto;
+  margin: 0 auto;
 }
 
 /* Navigation */
@@ -534,6 +545,7 @@ button.primary:hover {
 .page-section {
   position: relative;
   padding-top: var(--top-header-height);
+  background-image: url('/assets/images/night.png');
   scroll-snap-align: start;
 }
 
@@ -545,17 +557,12 @@ button.primary:hover {
   background-color: var(--primary-901);
 }
 
-/* .bd-explosion::before {
-  content: '';
-  background-image: url('../images/explosion.png');
-  background-repeat: no-repeat;
-  background-size: 800px;
-  width: 800px;
-  height: 600px;
-  z-index: 0;
-  filter: blur(10px);
-} */
+.page-section:first-child {
+  background-color: #000000;
+  background-position: center;
+}
 
+/*
 .bd-text::before {
   content: attr(data-backdrop-legend);
   position: absolute;
@@ -582,7 +589,7 @@ button.primary:hover {
   opacity: 0.08;
   z-index: 0;
   filter: blur(10px);
-}
+} */
 
 .bd-moon::before {
   content: "";
@@ -597,12 +604,13 @@ button.primary:hover {
   height: 120%;
   z-index: 0;
   filter: blur(10px);
-  opacity: 0.4;
+  opacity: 0.8;
 }
 
-.bd-image {
+/* .bd-image {
   position: relative;
-}
+} 
+
 
 .bd-image::after {
   content: "";
@@ -611,22 +619,30 @@ button.primary:hover {
   background-size: 85%;
   position: absolute;
   right: -25%;
-  width: 80%;
-  height: 80%;
+  height: calc(400px + 30%);
   top: calc(100px - 50%);
   width: calc(400px + 30%);
   z-index: 0;
   filter: blur(10px);
   opacity: 0.55;
-  top: -25%;
-}
+}  */
 
 /* Hero Banner */
 .hero-banner {
-  position: relative;
+  /* position: absolute; */
   gap: 4rem;
   height: 100%;
   padding: var(--s-50) var(--s-20) var(--s-80);
+}
+.hero-banner .sub-h-4, .hero-banner .p1 {
+  color: var(--primary-light-1);
+}
+
+
+.earth-object {
+  height: 100%;
+  width: calc(400px + 25%);
+  margin-left: auto;
 }
 
 @media screen and (min-width: 600px) {
@@ -639,10 +655,6 @@ button.primary:hover {
 
 .skills-list {
   margin-top: var(--s-10);
-  /* background-color: var(--primary-glassy-900);
-  padding: var(--s-10);
-  border-radius: var(--s-04);
-  backdrop-filter: blur(10px); */
 }
 
 .skills-list ul {
@@ -658,13 +670,6 @@ button.primary:hover {
   margin-top: var(--s-06);
   border-radius: 2px;
 }
-
-
-/* Canvas Skill Graph */
-/* canvas {
-  border: 1px solid var(--primary);
-} */
-
 
 /* Experience Timeline */
 .timeline {
@@ -703,10 +708,6 @@ button.primary:hover {
   position: relative;
   top: 20px;
   left: -64px;
-}
-
-.timeline .sub-h-2 {
-  margin-bottom: var(--s-04);
 }
 
 @media screen and (min-width: 767px) {
@@ -790,7 +791,7 @@ button.primary:hover {
 }
 
 .pf-item {
-  width: 30%;
+  width: calc((100% / 3) - var(--s-14));
   min-width: 336px;
   border: 1px solid var(--primary-700);
   padding: var(--s-14);
@@ -822,9 +823,9 @@ button.primary:hover {
 }
 
 .dev-icons-container > .icons path {
-  fill: var(--primary-light-1);
+  fill: var(--primary-gray);
 }
 
-.dev-icons-container .icons:hover >  path {
+.dev-icons-container .icons:hover > path {
   fill: var(--primary);
 }
