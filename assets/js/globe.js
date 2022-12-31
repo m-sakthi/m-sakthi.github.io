@@ -18,9 +18,10 @@ import {
 
 // import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import gsap from 'gsap';
+import earthImage from '../images/earth-map.jpeg';
+
 import vertexShader from '../shaders/vertex.glsl';
 import fragmentShader from '../shaders/fragment.glsl';
-
 import atmosphereVertexShader from '../shaders/atmosphereVertex.glsl';
 import atmosphereFragmentShader from '../shaders/atmosphereFragment.glsl';
 
@@ -56,7 +57,7 @@ const sphere = new Mesh(
     fragmentShader,
     uniforms: {
       globeTexture: {
-        value: new TextureLoader().load('/assets/images/earth-map.jpeg')
+        value: new TextureLoader().load(earthImage)
       }
     }
   })
