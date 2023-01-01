@@ -19,6 +19,7 @@ import {
 // import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import gsap from 'gsap';
 import earthImage from '/assets/images/earth-map.jpeg';
+import earthImageNight from '/assets/images/earth-night.jpeg';
 
 import vertexShader from '../shaders/vertex.glsl';
 import fragmentShader from '../shaders/fragment.glsl';
@@ -43,7 +44,9 @@ renderer.setPixelRatio(devicePixelRatio);
 // new OrbitControls(camera, renderer.domElement)
 
 
-const sphereSize = Math.min(Math.max(canvasContainer.offsetWidth / 100, 3), 6.6)
+const sphereSize = Math.min(Math.max(canvasContainer.offsetWidth / 100, 3), 6.6);
+const hourNow = (new Date()).getHours();
+const isDayTime = hourNow < 6 && hours > 18;
 
 // Create a sphere
 const sphere = new Mesh(
@@ -57,7 +60,7 @@ const sphere = new Mesh(
     fragmentShader,
     uniforms: {
       globeTexture: {
-        value: new TextureLoader().load(earthImage)
+        value: new TextureLoader().load(isDayTime ? earthImage : earthImageNight)
       }
     }
   })
@@ -140,7 +143,3 @@ addEventListener('mousemove', (event) => {
   mouse.x = (event.clientX / innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / innerHeight) * 2 + 1;
 });
-
-// addEventListener('resize', (event) => {
-//   console.log("******** ");
-// });
