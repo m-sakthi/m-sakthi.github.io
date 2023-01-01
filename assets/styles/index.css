@@ -9,7 +9,7 @@
   --primary-400: #208677;
   --primary-700: #1b4741;
   --primary-900: #000111;
-  --primary-901: #000506;
+  --primary-901: #000606;
 
   --primary-glassy-900: #00111166;
 
@@ -481,11 +481,16 @@ a.button {
 
 #section-container {
   transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+}
+
+@media screen and (min-width: 1024px) {
+  #section-container  {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
 }
 
 .max-width {
@@ -545,17 +550,24 @@ a.button {
 .page-section {
   position: relative;
   padding-top: var(--top-header-height);
+  background-color: var(--primary-900);
   background-image: url('/assets/images/night.png');
-  scroll-snap-align: start;
 }
 
-.page-section:nth-child(odd) {
+@media screen and (min-width: 1024px) {
+  .page-section {
+    scroll-snap-align: start;
+  }
+}
+
+
+/* .page-section:nth-child(odd) {
   background-color: var(--primary-900);
 }
 
 .page-section:nth-child(even) {
   background-color: var(--primary-901);
-}
+} */
 
 .page-section:first-child {
   background-color: #000000;
@@ -604,7 +616,7 @@ a.button {
   height: 120%;
   z-index: 0;
   filter: blur(10px);
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 /* .bd-image {
@@ -792,12 +804,11 @@ a.button {
 
 .pf-item {
   width: calc((100% / 3) - var(--s-14));
-  min-width: 336px;
+  min-width: 294px;
   border: 1px solid var(--primary-700);
   padding: var(--s-14);
   border-radius: var(--s-04);
-  backdrop-filter: blur(10px);
-  z-index: 1;
+  backdrop-filter: blur(2px);
 }
 
 .pf-item .p2 {

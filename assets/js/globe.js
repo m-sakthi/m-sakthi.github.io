@@ -18,7 +18,7 @@ import {
 
 // import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import gsap from 'gsap';
-import earthImage from '../images/earth-map.jpeg';
+import earthImage from '/assets/images/earth-map.jpeg';
 
 import vertexShader from '../shaders/vertex.glsl';
 import fragmentShader from '../shaders/fragment.glsl';
