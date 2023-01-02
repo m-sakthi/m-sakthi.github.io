@@ -3,7 +3,6 @@ import {
   PerspectiveCamera,
   WebGLRenderer,
   Mesh,
-  Color,
   TextureLoader,
   ShaderMaterial,
   SphereGeometry,
