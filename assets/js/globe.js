@@ -46,7 +46,7 @@ renderer.setPixelRatio(devicePixelRatio);
 
 const sphereSize = Math.min(Math.max(canvasContainer.offsetWidth / 100, 3), 6.6);
 const hourNow = (new Date()).getHours();
-const isDayTime = hourNow < 6 && hours > 18;
+const isDayTime = hourNow < 6 && hourNow > 18;
 
 // Create a sphere
 const sphere = new Mesh(
