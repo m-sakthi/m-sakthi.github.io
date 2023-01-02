@@ -2,19 +2,22 @@
   "name": "my-github-portfolio",
   "version": "1.0.0",
   "description": "Portfolio Template",
+  "homepage": "https://m-sakthi.github.io",
   "main": "index.html",
   "author": "Sakthivel M",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "gh-deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "vite": "^4.0.3",
     "vite-plugin-string": "^1.2.1"
   },
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "gsap": "^3.11.4",
     "three": "^0.148.0"
   }
