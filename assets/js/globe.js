@@ -26,16 +26,18 @@ import atmosphereVertexShader from '../shaders/atmosphereVertex.glsl';
 import atmosphereFragmentShader from '../shaders/atmosphereFragment.glsl';
 
 const canvasContainer = document.getElementById('canvas-container');
+const canvasWidth = Math.max(600, canvasContainer.offsetWidth);
+const canvasHeight = Math.max(600, canvasContainer.offsetHeight);
 
 const scene = new Scene();
-const camera = new PerspectiveCamera(75, canvasContainer.offsetWidth / canvasContainer.offsetHeight, 1, 500);
+const camera = new PerspectiveCamera(75, canvasWidth / canvasHeight, 1, 500);
 const renderer = new WebGLRenderer({
   alpha: true,
   antialias: true,
   canvas: document.querySelector('canvas')
 });
 
-renderer.setSize(canvasContainer.offsetWidth, canvasContainer.offsetHeight);
+renderer.setSize(canvasWidth, canvasHeight);
 renderer.setPixelRatio(devicePixelRatio);
 // container.appendChild(renderer.domElement);
 
@@ -43,7 +45,7 @@ renderer.setPixelRatio(devicePixelRatio);
 // new OrbitControls(camera, renderer.domElement)
 
 
-const sphereSize = Math.min(Math.max(canvasContainer.offsetWidth / 100, 3), 6.6);
+const sphereSize = Math.min(Math.max(canvasWidth / 100, 3), 6.6);
 const hourNow = (new Date()).getHours();
 const isDayTime = hourNow < 6 && hourNow > 18;
 
