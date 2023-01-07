@@ -25,6 +25,7 @@
   --dark: #000909;
 
   /* sizes */
+  --s-02: 0.2rem;
   --s-04: 0.4rem;
   --s-06: 0.6rem;
   --s-07: 0.7rem;
@@ -308,6 +309,10 @@ a {
   margin-bottom: var(--s-20);
 }
 
+.mar-rt-08 {
+  margin-right: var(--s-08);
+}
+
 /* Position */
 .absolute {
   position: absolute;
@@ -480,6 +485,10 @@ a.button {
 }
 
 /* Text */
+
+.align-center {
+  text-align: center;
+}
 
 .nowrap {
   white-space: nowrap;
@@ -687,38 +696,39 @@ a.button {
 
 .skills-list {
   margin-top: var(--s-10);
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: var(--s-30);
+  z-index: 1;
 }
 
-.skills-list ul {
-  width: calc(100% / 3);
-}
-
-.skills-list li::after {
-  content: "";
-  height: var(--s-04);
-  width: var(--data-width);
-  display: block;
-  background-color: var(--primary-400);
-  margin-top: var(--s-06);
-  border-radius: 2px;
-}
-
-.dev-icons-container {
-  margin-top: var(--s-08);
+.icons-wrapper {
   display: flex;
-  gap: var(--s-06);
+  align-items: center;
+  flex-direction: column;
+  margin-right: var(--s-08);
+  color: var(--primary-gray);
+  white-space: nowrap;
+  font-size: var(--s-08);
+  text-align: center;
+  transition: color 0.3s ease-in;
 }
 
-.dev-icons-container .icons, .skills-list .icons {
-  width: var(--s-30);
-  height: var(--s-30);
+.icons-wrapper:hover {
+  color: var(--primary);
 }
 
-.dev-icons-container .icons path, .skills-list .icons path {
-  fill: var(--primary-light);
+.skills-list .icons {
+  width: var(--s-24);
+  height: var(--s-24);
+  border: none;
 }
 
-.dev-icons-container .icons:hover > path, .skills-list .icons:hover > path {
+.skills-list .icons path {
+  fill: var(--primary-gray);
+}
+
+.icons-wrapper:hover .icons > path {
   fill: var(--primary);
 }
 

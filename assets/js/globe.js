@@ -9,10 +9,10 @@ import {
   AdditiveBlending,
   BackSide,
   Group,
-  BufferGeometry,
-  PointsMaterial,
-  Float32BufferAttribute,
-  Points,
+  // BufferGeometry,
+  // PointsMaterial,
+  // Float32BufferAttribute,
+  // Points,
 } from 'three';
 
 // import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
