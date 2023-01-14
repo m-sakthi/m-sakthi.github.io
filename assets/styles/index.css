@@ -11,7 +11,8 @@
   --primary-900: #000111;
   --primary-901: #000606;
 
-  --primary-glassy-900: #00111166;
+  --primary-900-glassy-4: #00111166;
+  --primary-900-glassy-1: #0011111A;
 
   /*  */
   --primary-gray: #829898;
@@ -498,6 +499,19 @@ a.button {
   white-space: nowrap;
 }
 
+/* Backdrop blur */
+.backdrop-blur {
+  background-color: var(---primary-900-glassy-1);
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .backdrop-blur {
+    background-color: var(--primary-900-glassy-1);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+}
+
 /* App styles */
 #full-page-container {
   color: var(--light);
@@ -525,7 +539,7 @@ a.button {
 /* Navigation */
 .navigation {
   z-index: 10;
-  backdrop-filter: blur(20px);
+  /* backdrop-filter: blur(20px); */
   /* background-color: var(--primary-900); */
   /* box-shadow: -1px -1px 8px -4px var(--primary); */
 }
