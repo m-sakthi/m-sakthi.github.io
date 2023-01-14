@@ -244,6 +244,10 @@ a {
   justify-content: space-between;
 }
 
+.flx-wrap {
+  flex-wrap: wrap;
+}
+
 .width-100 {
   width: 100%;
 }
@@ -696,9 +700,9 @@ a.button {
 
 .skills-list {
   margin-top: var(--s-10);
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: flex-start;
-  gap: var(--s-30);
+  gap: var(--s-24);
   z-index: 1;
 }
 
@@ -707,6 +711,7 @@ a.button {
   align-items: center;
   flex-direction: column;
   margin-right: var(--s-08);
+  margin-bottom: var(--s-08);
   color: var(--primary-gray);
   white-space: nowrap;
   font-size: var(--s-08);
@@ -744,7 +749,7 @@ a.button {
   position: absolute;
   width: 1px;
   background-color: var(--primary-400);
-  top: 10px;
+  top: var(--s-24);
   bottom: 0;
 }
 
@@ -753,6 +758,8 @@ a.button {
   top: -16px;
   color: var(--primary-200);
   font-size: var(--s-08);
+  margin-top: var(--s-14);
+  margin-bottom: var(--s-10);
 }
 
 .timeline li {
