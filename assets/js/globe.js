@@ -15,7 +15,7 @@ import {
   // Points,
 } from 'three';
 
-// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import gsap from 'gsap';
 import earthImage from '/assets/images/earth-map.jpeg';
 import earthImageNight from '/assets/images/earth-night.jpeg';
@@ -42,7 +42,7 @@ renderer.setPixelRatio(devicePixelRatio);
 // container.appendChild(renderer.domElement);
 
 // Create a movement along orbits
-// new OrbitControls(camera, renderer.domElement)
+new OrbitControls(camera, renderer.domElement)
 
 
 const sphereSize = Math.min(Math.max(canvasWidth / 100, 3), 6.6);
@@ -130,7 +130,7 @@ function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
   sphere.rotation.y += 0.004;
-  // group.rotation.y = mouse.x * 0.5;
+  group.rotation.y = mouse.x * 0.5;
   gsap.to(group.rotation, {
     x: -mouse.y * 0.3,
     y: mouse.x * 0.5,
