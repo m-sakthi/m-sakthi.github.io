@@ -20,6 +20,10 @@
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
+      @import "tailwindcss";
+      @custom-variant dark (&:where(.dark, .dark *));
+      /* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
+
       :root {
         --background: #f5f5f4;
         --text: #292524;
@@ -27,13 +31,9 @@
 
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #f5f5f4;
-        /* stone-100 */
-        color: #292524;
-        /* stone-800 */
-
         background: var(--background);
         color: var(--text);
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
       /* Dark theme overrides */
@@ -55,6 +55,14 @@
         /* indigo-600 */
       }
 
+      html.dark .nav-link.active,
+      html.dark .nav-link:hover {
+        color: #a5b4fc;
+        /* indigo-300 */
+        border-bottom-color: #a5b4fc;
+        /* indigo-300 */
+      }
+
       .timeline-item-content {
         transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
         max-height: 0;
@@ -73,6 +81,13 @@
         color: #ffffff;
       }
 
+      html.dark .filter-btn.active {
+        background-color: #a5b4fc;
+        /* indigo-300 */
+        color: #1e293b;
+        /* slate-900 */
+      }
+
       .chart-container {
         position: relative;
         width: 100%;
@@ -82,30 +97,47 @@
         height: 400px;
       }
 
+      #theme-toggler {
+        cursor: pointer;
+        background: gray;
+        padding: 10px 16px;
+        font-size: 24px;
+        border-radius: 50%;
+      }
+
       @media (min-width: 768px) {
         .chart-container {
           height: 500px;
         }
       }
     </style>
+
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
   </head>
 
-  <body class="antialiased">
+  <body
+    class="antialiased bg-stone-100 text-stone-800 dark:bg-stone-900 dark:text-stone-100 min-h-screen flex flex-col">
 
     <!-- Header & Navigation -->
-    <header id="header" class="bg-stone-100/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200">
+    <!-- class="bg-stone-100/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200" -->
+    <header id="header"
+      class="bg-stone-100/80 dark:bg-stone-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200 dark:border-stone-700">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           <div class="flex items-center">
-            <h1 class="text-2xl font-bold text-stone-900">Sakthivel M</h1>
+            <h1 class="text-2xl font-bold text-stone-900 dark:text-stone-100">Sakthivel Murugadas</h1>
           </div>
           <nav class="hidden md:flex space-x-8">
-            <a href="#experience" class="nav-link text-gray-600 font-medium pb-1">Experience</a>
-            <a href="#skills" class="nav-link text-gray-600 font-medium pb-1">Skills</a>
-            <a href="#projects" class="nav-link text-gray-600 font-medium pb-1">Projects</a>
-            <a href="#education" class="nav-link text-gray-600 font-medium pb-1">Education</a>
+            <a href="#experience" class="nav-link text-gray-600 dark:text-stone-300 font-medium pb-1">Experience</a>
+            <a href="#skills" class="nav-link text-gray-600 dark:text-stone-300 font-medium pb-1">Skills</a>
+            <a href="#projects" class="nav-link text-gray-600 dark:text-stone-300 font-medium pb-1">Projects</a>
+            <a href="#education" class="nav-link text-gray-600 dark:text-stone-300 font-medium pb-1">Education</a>
           </nav>
-          <!-- <button id="theme-toggle">Toggle Dark Theme</button> -->
+          <button id="theme-toggle"></button>
         </div>
       </div>
     </header>
@@ -115,25 +147,28 @@
 
       <!-- Hero Section -->
       <section id="hero" class="text-center py-16">
-        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-stone-900">Senior Developer & Cloud
-          Enthusiast</h2>
-        <p class="mt-6 max-w-3xl mx-auto text-lg text-stone-600">Digital native, enthusiastic, and ready to take
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-100">Senior Developer
+          & Cloud Enthusiast</h2>
+        <p class="mt-6 max-w-3xl mx-auto text-lg text-stone-600 dark:text-stone-300">Digital native, enthusiastic, and
+          ready to take
           responsibility in web/mobile application development and the enterprise adoption of DevOps and Cloud.</p>
         <div class="mt-8 flex justify-center space-x-6 text-sm">
-          <span class="text-stone-600">Brussels, Belgium</span>
-          <span class="text-stone-500">|</span>
-          <a href="mailto:msv300@gmail.com" class="text-indigo-600 hover:text-indigo-800">msv300@gmail.com</a>
+          <span class="text-stone-600 dark:text-stone-400">Brussels, Belgium</span>
+          <span class="text-stone-500 dark:text-stone-400">|</span>
+          <a href="mailto:msv300@gmail.com"
+            class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300">msv300@gmail.com</a>
           <span class="text-stone-500">|</span>
           <a href="https://github.com/m-sakthi" target="_blank"
-            class="text-indigo-600 hover:text-indigo-800">github.com/m-sakthi</a>
+            class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300">github.com/m-sakthi</a>
         </div>
       </section>
 
       <!-- Experience Section -->
       <section id="experience" class="py-16">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-bold text-center text-stone-900">Career Journey</h2>
-          <p class="mt-4 text-center text-stone-600">A timeline of my professional roles and key responsibilities. Click
+          <h2 class="text-3xl font-bold text-center text-stone-900 dark:text-stone-100">Career Journey</h2>
+          <p class="mt-4 text-center text-stone-600 dark:text-stone-300">A timeline of my professional roles and key
+            responsibilities. Click
             on any role to see more details and accomplishments.</p>
           <div id="timeline-container" class="mt-12">
             <!-- Timeline items will be injected here by JavaScript -->
@@ -142,10 +177,11 @@
       </section>
 
       <!-- Skills Section -->
-      <section id="skills" class="py-16 bg-white rounded-2xl shadow-sm">
+      <section id="skills" class="py-16 bg-white dark:bg-stone-800 rounded-2xl shadow-sm">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-bold text-center text-stone-900">Technical Expertise</h2>
-          <p class="mt-4 text-center text-stone-600">This chart provides a visual breakdown of my skills. Use the
+          <h2 class="text-3xl font-bold text-center text-stone-900 dark:text-stone-100">Technical Expertise</h2>
+          <p class="mt-4 text-center text-stone-600 dark:text-stone-300">This chart provides a visual breakdown of my
+            skills. Use the
             buttons below to filter by category and see my proficiency across different technologies.</p>
           <div class="mt-8 text-center space-x-2" id="skill-filter-buttons">
             <!-- Skill filter buttons will be injected here -->
@@ -159,8 +195,9 @@
       <!-- Projects Section -->
       <section id="projects" class="py-16">
         <div class="max-w-5xl mx-auto">
-          <h2 class="text-3xl font-bold text-center text-stone-900">Highlighted Projects</h2>
-          <p class="mt-4 text-center text-stone-600 max-w-3xl mx-auto">Here are some of the key projects I've
+          <h2 class="text-3xl font-bold text-center text-stone-900 dark:text-stone-100">Highlighted Projects</h2>
+          <p class="mt-4 text-center text-stone-600 dark:text-stone-300 max-w-3xl mx-auto">Here are some of the key
+            projects I've
             architected and developed. Use the filters to sort projects by the primary technologies used.</p>
           <div class="mt-8 flex justify-center flex-wrap gap-2" id="project-filter-buttons">
             <!-- Project filter buttons will be injected here -->
@@ -172,30 +209,30 @@
       </section>
 
       <!-- Education & Awards Section -->
-      <section id="education" class="py-16 bg-white rounded-2xl shadow-sm">
+      <section id="education" class="py-16 bg-white dark:bg-stone-800 rounded-2xl shadow-sm">
         <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
-            <h3 class="text-2xl font-bold text-center text-stone-900">Education</h3>
-            <div class="mt-6 bg-stone-50 p-6 rounded-lg text-center">
-              <h4 class="font-bold text-lg text-stone-800">Master of Science - Computer Science</h4>
-              <p class="text-stone-600 mt-1">D.G. Vaishnav College, Madras University, Chennai</p>
-              <p class="text-sm text-stone-500 mt-2">July 2013 - May 2015</p>
+            <h3 class="text-2xl font-bold text-center text-stone-900 dark:text-stone-100">Education</h3>
+            <div class="mt-6 bg-stone-50 dark:bg-stone-700 p-6 rounded-lg text-center">
+              <h4 class="font-bold text-lg text-stone-800 dark:text-stone-200">Master of Science - Computer Science</h4>
+              <p class="text-stone-600 dark:text-stone-300 mt-1">D.G. Vaishnav College, Madras University, Chennai</p>
+              <p class="text-sm text-stone-500 dark:text-stone-400 mt-2">July 2013 - May 2015</p>
             </div>
           </div>
           <div>
-            <h3 class="text-2xl font-bold text-center text-stone-900">Awards & Recognition</h3>
+            <h3 class="text-2xl font-bold text-center text-stone-900 dark:text-stone-100">Awards & Recognition</h3>
             <div class="mt-6 space-y-3">
-              <div class="bg-stone-50 p-4 rounded-lg">
-                <p class="font-semibold text-stone-700">🏆 Innovation Pride Award</p>
+              <div class="bg-stone-50 dark:bg-stone-700 p-4 rounded-lg">
+                <p class="font-semibold text-stone-700 dark:text-stone-200">🏆 Innovation Pride Award</p>
               </div>
-              <div class="bg-stone-50 p-4 rounded-lg">
-                <p class="font-semibold text-stone-700">🏆 Special Initiative Award</p>
+              <div class="bg-stone-50 dark:bg-stone-700 p-4 rounded-lg">
+                <p class="font-semibold text-stone-700 dark:text-stone-200">🏆 Special Initiative Award</p>
               </div>
-              <div class="bg-stone-50 p-4 rounded-lg">
-                <p class="font-semibold text-stone-700">🏆 Technical Excellence Award</p>
+              <div class="bg-stone-50 dark:bg-stone-700 p-4 rounded-lg">
+                <p class="font-semibold text-stone-700 dark:text-stone-200">🏆 Technical Excellence Award</p>
               </div>
-              <div class="bg-stone-50 p-4 rounded-lg">
-                <p class="font-semibold text-stone-700">🏆 Service and Commitment Award</p>
+              <div class="bg-stone-50 dark:bg-stone-700 p-4 rounded-lg">
+                <p class="font-semibold text-stone-700 dark:text-stone-200">🏆 Service and Commitment Award</p>
               </div>
             </div>
           </div>
@@ -203,17 +240,48 @@
       </section>
     </main>
 
-    <footer class="bg-stone-200">
-      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-stone-600">
+    <footer class="bg-stone-200 dark:bg-stone-800">
+      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-stone-600 dark:text-stone-100">
         <p id="copyright">&copy; 2025 Sakthivel M. Interactive Resume.</p>
       </div>
     </footer>
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // document.getElementById('theme-toggle').onclick = function () {
-        //   document.body.classList.toggle('dark-theme');
-        // };
+        let skillsChart = null;
+        const htmlElement = document.documentElement;
+        const themeToggler = document.getElementById('theme-toggle');
+        themeToggler.innerHTML = '🌙';
+
+        function setTheme(theme) {
+          if (theme === 'dark') {
+            htmlElement.classList.add('dark');
+            themeToggler.innerHTML = '☀️';
+            localStorage.setItem('theme', 'dark');
+          } else {
+            htmlElement.classList.remove('dark');
+            themeToggler.innerHTML = '🌙';
+            localStorage.setItem('theme', 'light');
+          }
+          updateChartColors();
+        }
+
+        // Check for stored theme or system preference on page load
+        if (
+          localStorage.theme === 'dark' ||
+          (!('theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          setTheme('dark');
+        } else {
+          setTheme('light');
+        }
+
+        if (themeToggler) {
+          themeToggler.addEventListener('click', function () {
+            setTheme(htmlElement.classList.contains('dark') ? 'light' : 'dark');
+          });
+        }
 
         const experienceData = [
           {
@@ -323,69 +391,93 @@
           }
         };
 
+        // --- Theme Management ---
+        function getChartColors() {
+          const isDark = htmlElement.classList.contains('dark');
+          return {
+            barBg: isDark ? 'rgba(129, 140, 248, 0.8)' : 'rgba(79, 70, 229, 0.7)', // indigo-400 vs indigo-600
+            barBorder: isDark ? 'rgba(129, 140, 248, 1)' : 'rgba(79, 70, 229, 1)',
+            gridColor: isDark ? '#44403c' : '#e7e5e4',
+            textColor: isDark ? '#d6d3d1' : '#57534e',
+          };
+        }
+
+        function updateChartColors() {
+          if (skillsChart) {
+            const colors = getChartColors();
+            skillsChart.data.datasets[0].backgroundColor = colors.barBg;
+            skillsChart.data.datasets[0].borderColor = colors.barBorder;
+            skillsChart.options.scales.x.ticks.color = colors.textColor;
+            skillsChart.options.scales.y.ticks.color = colors.textColor;
+            skillsChart.options.scales.y.grid.color = colors.gridColor;
+            skillsChart.update();
+          }
+        }
+
         // --- Timeline Generation ---
         const timelineContainer = document.getElementById('timeline-container');
-        if (timelineContainer) {
-          experienceData.forEach((job, index) => {
-            const item = document.createElement('div');
-            item.className = 'timeline-item relative pl-8 sm:pl-12 py-6 border-l-2 border-stone-300';
-            item.innerHTML = `
-                        <div class="absolute -left-[11px] top-8 w-5 h-5 bg-white border-2 border-indigo-600 rounded-full"></div>
-                        <div class="cursor-pointer group" data-index="${index}">
-                            <p class="text-sm text-stone-500">${job.period}</p>
-                            <h3 class="text-xl font-bold mt-1 text-stone-800">${job.role}</h3>
-                            <p class="text-md font-medium text-indigo-700">${job.company} - ${job.location}</p>
-                        </div>
-                        <div id="timeline-content-${index}" class="timeline-item-content">
-                            <ul class="mt-4 list-disc list-inside space-y-2 text-stone-600">
-                                ${job.details.map(detail => `<li>${detail}</li>`).join('')}
-                            </ul>
-                        </div>
-                    `;
-            timelineContainer.appendChild(item);
-          });
+        let openTimelineIndex = null; // State for opened timeline item
+
+        function renderTimeline() {
+          if (timelineContainer) {
+            timelineContainer.innerHTML = ''; // Clear existing content
+            experienceData.forEach((job, index) => {
+              const item = document.createElement('div');
+              item.className = 'timeline-item relative pl-8 sm:pl-12 py-6 border-l-2 border-stone-300 dark:border-stone-700';
+              item.innerHTML = `
+                            <div class="absolute -left-[11px] top-8 w-5 h-5 bg-white dark:bg-stone-900 border-2 border-indigo-600 rounded-full"></div>
+                            <div class="cursor-pointer group" data-index="${index}">
+                                <p class="text-sm text-stone-500 dark:text-stone-400">${job.period}</p>
+                                <h3 class="text-xl font-bold mt-1 text-stone-800 dark:text-stone-200">${job.role}</h3>
+                                <p class="text-md font-medium text-indigo-700 dark:text-indigo-400">${job.company} - ${job.location}</p>
+                            </div>
+                            <div id="timeline-content-${index}" class="timeline-item-content ${openTimelineIndex === index ? 'open' : ''}">
+                                <ul class="mt-4 list-disc list-inside space-y-2 text-stone-600 dark:text-stone-300">
+                                    ${job.details.map(detail => `<li>${detail}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `;
+              timelineContainer.appendChild(item);
+            });
+          }
         }
 
         // --- Timeline Interaction ---
-        timelineContainer.addEventListener('click', function (e) {
-          const header = e.target.closest('.group');
-          if (header) {
-            const index = header.dataset.index;
-            const content = document.getElementById(`timeline-content-${index}`);
-            const allContents = document.querySelectorAll('.timeline-item-content');
-
-            allContents.forEach(c => {
-              if (c.id !== content.id && c.classList.contains('open')) {
-                c.classList.remove('open');
+        if (timelineContainer) {
+          timelineContainer.addEventListener('click', function (e) {
+            const header = e.target.closest('.group');
+            if (header) {
+              const index = parseInt(header.dataset.index, 10);
+              if (openTimelineIndex === index) {
+                openTimelineIndex = null; // Close if already open
+              } else {
+                openTimelineIndex = index; // Open clicked item
               }
-            });
-
-            content.classList.toggle('open');
-          }
-        });
+              renderTimeline(); // Re-render to update open state
+            }
+          });
+        }
+        renderTimeline(); // Initial render of timeline
 
         // --- Skills Chart ---
         const ctx = document.getElementById('skillsChart');
-        let skillsChart;
+        let activeSkillCategory = 'Frontend'; // State for active skill category
         if (ctx) {
           const skillFilterButtonsContainer = document.getElementById('skill-filter-buttons');
           const skillCategories = Object.keys(skillsData);
 
-          skillCategories.forEach((category, index) => {
-            const button = document.createElement('button');
-            button.textContent = category;
-            button.className = 'filter-btn px-4 py-2 rounded-md text-sm font-medium transition-colors bg-stone-200 hover:bg-stone-300';
-            if (index === 0) button.classList.add('active');
-            button.dataset.category = category;
-            skillFilterButtonsContainer.appendChild(button);
-          });
-
           const createOrUpdateChart = (category) => {
             const chartData = skillsData[category];
+            const colors = getChartColors();
             if (skillsChart) {
               skillsChart.data.labels = chartData.labels;
               skillsChart.data.datasets[0].data = chartData.data;
               skillsChart.data.datasets[0].label = `${category} Skills`;
+              skillsChart.data.datasets[0].backgroundColor = colors.barBg;
+              skillsChart.data.datasets[0].borderColor = colors.barBorder;
+              skillsChart.options.scales.x.ticks.color = colors.textColor;
+              skillsChart.options.scales.y.ticks.color = colors.textColor;
+              skillsChart.options.scales.y.grid.color = colors.gridColor;
               skillsChart.update();
             } else {
               skillsChart = new Chart(ctx, {
@@ -396,8 +488,6 @@
                     label: `${category} Skills`,
                     data: chartData.data,
                     backgroundColor: 'rgba(79, 70, 229, 0.7)',
-                    borderColor: 'rgba(79, 70, 229, 1)',
-                    borderWidth: 1
                   }]
                 },
                 options: {
@@ -406,11 +496,14 @@
                   indexAxis: 'y',
                   scales: {
                     x: {
-                      display: false,
-                      grid: { display: false }
+                      beginAtZero: true,
+                      max: 100,
+                      grid: { display: false },
+                      ticks: { color: colors.textColor }
                     },
                     y: {
-                      grid: { color: '#e7e5e4' } /* stone-200 */
+                      grid: { color: colors.gridColor },
+                      ticks: { color: colors.textColor }
                     }
                   },
                   plugins: {
@@ -431,21 +524,35 @@
             }
           };
 
-          skillFilterButtonsContainer.addEventListener('click', (e) => {
-            if (e.target.tagName === 'BUTTON') {
-              const category = e.target.dataset.category;
-              createOrUpdateChart(category);
-              document.querySelectorAll('#skill-filter-buttons .filter-btn').forEach(btn => btn.classList.remove('active'));
-              e.target.classList.add('active');
-            }
-          });
+          // const skillFilterButtonsContainer = document.getElementById('skill-filter-buttons');
+          if (skillFilterButtonsContainer) {
+            const skillCategories = Object.keys(skillsData);
+            skillCategories.forEach((category, index) => {
+              const button = document.createElement('button');
+              button.textContent = category;
+              button.className = 'filter-btn px-4 py-2 rounded-md text-sm font-medium transition-colors bg-stone-200 hover:bg-stone-300 dark:bg-stone-700 dark:hover:bg-stone-600 dark:text-stone-200';
+              if (index === 0) button.classList.add('active');
+              button.dataset.category = category;
+              skillFilterButtonsContainer.appendChild(button);
+            });
 
-          createOrUpdateChart(skillCategories[0]);
+            skillFilterButtonsContainer.addEventListener('click', function (e) {
+              if (e.target.tagName === 'BUTTON') {
+                activeSkillCategory = e.target.dataset.category;
+                createOrUpdateChart(activeSkillCategory);
+                document.querySelectorAll('#skill-filter-buttons .filter-btn').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+              }
+            });
+          }
+          createOrUpdateChart(activeSkillCategory); // Initial chart render
         }
 
         // --- Project Filtering ---
         const projectsGrid = document.getElementById('projects-grid');
         const projectFilterButtonsContainer = document.getElementById('project-filter-buttons');
+        let activeProjectFilter = 'All'; // State for active project filter
+
         let projectTags = ['All'];
         projectsData.forEach(p => {
           p.tags.forEach(tag => {
@@ -455,45 +562,52 @@
           });
         });
 
-        projectTags.forEach((tag, index) => {
-          const button = document.createElement('button');
-          button.textContent = tag;
-          button.className = 'filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors bg-white border border-stone-300 hover:bg-stone-100';
-          if (index === 0) button.classList.add('active');
-          button.dataset.filter = tag;
-          projectFilterButtonsContainer.appendChild(button);
-        });
-
-        const renderProjects = (filter = 'All') => {
-          projectsGrid.innerHTML = '';
-          const filteredProjects = filter === 'All'
-            ? projectsData
-            : projectsData.filter(p => p.tags.includes(filter));
-
-          filteredProjects.forEach(project => {
-            const card = document.createElement('div');
-            card.className = 'bg-white rounded-lg shadow-md p-6 flex flex-col transition-transform duration-300 hover:scale-105';
-            card.innerHTML = `
-                        <h4 class="text-lg font-bold text-stone-800">${project.title}</h4>
-                        <p class="mt-2 text-stone-600 flex-grow">${project.description}</p>
-                        <div class="mt-4 flex flex-wrap gap-2">
-                            ${project.tech.map(t => `<span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">${t}</span>`).join('')}
-                        </div>
-                    `;
-            projectsGrid.appendChild(card);
-          });
-        };
-
-        projectFilterButtonsContainer.addEventListener('click', (e) => {
-          if (e.target.tagName === 'BUTTON') {
-            const filter = e.target.dataset.filter;
-            renderProjects(filter);
-            document.querySelectorAll('#project-filter-buttons .filter-btn').forEach(btn => btn.classList.remove('active'));
-            e.target.classList.add('active');
+        function renderProjectFilters() {
+          if (projectFilterButtonsContainer) {
+            projectFilterButtonsContainer.innerHTML = ''; // Clear existing
+            projectTags.forEach((tag) => {
+              const button = document.createElement('button');
+              button.textContent = tag;
+              button.className = `filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors bg-white border border-stone-300 hover:bg-stone-100 dark:bg-stone-700 dark:border-stone-600 dark:hover:bg-stone-600 dark:text-stone-200 ${activeProjectFilter === tag ? 'active' : ''}`;
+              button.dataset.filter = tag;
+              projectFilterButtonsContainer.appendChild(button);
+            });
           }
-        });
+        }
 
-        renderProjects();
+        function renderProjects(filter = 'All') {
+          if (projectsGrid) {
+            projectsGrid.innerHTML = '';
+            const filteredProjects = filter === 'All'
+              ? projectsData
+              : projectsData.filter(p => p.tags.includes(filter));
+
+            filteredProjects.forEach(project => {
+              const card = document.createElement('div');
+              card.className = 'bg-white dark:bg-stone-700 rounded-lg shadow-md p-6 flex flex-col transition-transform duration-300 hover:scale-105';
+              card.innerHTML = `
+                            <h4 class="text-lg font-bold text-stone-800 dark:text-stone-200">${project.title}</h4>
+                            <p class="mt-2 text-stone-600 dark:text-stone-300 flex-grow">${project.description}</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                ${project.tech.map(t => `<span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-200">${t}</span>`).join('')}
+                            </div>
+                        `;
+              projectsGrid.appendChild(card);
+            });
+          }
+        }
+
+        if (projectFilterButtonsContainer) {
+          projectFilterButtonsContainer.addEventListener('click', function (e) {
+            if (e.target.tagName === 'BUTTON') {
+              activeProjectFilter = e.target.dataset.filter;
+              renderProjects(activeProjectFilter);
+              renderProjectFilters(); // Re-render filters to update active state
+            }
+          });
+        }
+        renderProjectFilters(); // Initial render of filters
+        renderProjects(activeProjectFilter); // Initial render of projects
 
         // --- Nav scroll highlighting ---
         const sections = document.querySelectorAll('main section');
